@@ -1,0 +1,26 @@
+{% extends "cornice.html" %}
+{% block titolo %}
+maltoliquido | per appassionati | tutte le birre esistenti
+{% endblock %}
+{% block corpo %}
+<div id="corpo">
+{% if criterio %}
+	<div id="criterio">Mostrate birre per {{criterio}}</div>
+{% endif %}
+{% if birre %}
+{% for birra in birre %}
+	<div class="birra">
+		{% for attributo in json_data["attributi_birra"] %}
+			{% if attributo.ascii == "immagineprincipale" %}
+				<div class="immagineprincipale"><a href="{{birra.immagineprincipale}}"><img src="{{birra.immagineprincipale}}"/></a></div>
+			{% else %}
+				<div class={{attributo.ascii}}><a href="/{{attributo.ascii}}/{{birra[attributo.ascii][1]}}">{{birra[attributo.ascii][0]}}</a></div>
+			{% endif %}
+		{% endfor %}
+	</div>
+{% endfor %}
+{% else %}
+Nessuna birra trovata nel database
+{% endif %}
+</div>
+{% endblock %}

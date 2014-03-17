@@ -1,0 +1,55 @@
+#corpo {
+	position: relative;
+	clear: both;
+	font-size: 0.75em;
+	}
+
+form,
+.birra {
+	float: left;
+	margin: 1%;
+/*
+	width: 40%;
+*/
+	background-color: #B2A3FF;
+	}
+
+.birra div {
+	margin: 5px;
+	background-color: #D5D3E4;
+	}
+
+.birra div span {
+	margin: 2px;
+	padding: 2px;
+	background-color: #7461D5;
+	font-size: 1.125em;
+	}
+	
+.birra div a {
+	margin: 2px;
+	padding: 2px;
+	background-color: #E1D675;
+	}
+
+input {
+	width: 96%;
+	}
+
+#corpo input[type="submit"],
+#corpo button,
+#corpo .cronologia a {
+	background-color: #D61414;
+	color: white;
+	margin: 1%;
+	padding: 2px;
+}
+
+#corpo #blocco_immagine {
+	float: left;
+}
+
+.key,
+.upload_url {
+	display: none;
+	}

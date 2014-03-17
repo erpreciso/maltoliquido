@@ -1,0 +1,18 @@
+{% extends "cornice.html" %}
+{% block titolo %}
+maltoliquido | per appassionati | tutte le birre esistenti
+{% endblock %}
+{% block corpo %}
+<div id="corpo">
+{% if commenti %}
+{% for commento in commenti %}
+	<div class="commento">
+		{{commento.data}}
+		{{commento.testo}}
+	</div>
+{% endfor %}
+{% else %}
+Nessun commento trovato nel database
+{% endif %}
+</div>
+{% endblock %}

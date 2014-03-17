@@ -1,0 +1,34 @@
+{% extends "struttura.html" %}
+{% block cornice %}
+<body>
+		<header>
+			<span id="intestazione">
+				<a href="/ultime">
+					<h1>Maltoliquido</h1>
+					<h2>La birra non va bevuta con la pizza</h2>
+				</a>
+			</span>			
+			<span id="menu">
+				<a href="/chisiamo">Chi siamo</a>
+				<a href="/nome/">Aggiungi una birra</a>
+				<a href="/tutte/">Tutte le birre</a>
+				<a href="/ultime/">Ultime inserite</a>
+				<a href="/mappa">Mappa (in costruzione)</a>
+			</span>
+		</header>
+		{% block corpo %}
+		default corpo
+		{% endblock %}
+		<footer>
+			<div id="info_varie">Powered by erpreciso&copy;</div>
+			<div id="commenti">
+				<button id="commenta">
+					Dacci un'idea da aggiungere al sito
+				</button>
+			</div>
+<!--
+			<button id="vis">codice pagina</button>
+-->
+		</footer>
+</body>
+{% endblock %}

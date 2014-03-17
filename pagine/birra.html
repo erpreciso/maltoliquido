@@ -1,0 +1,36 @@
+{% extends "cornice.html" %}
+{% block titolo %}
+maltoliquido | per appassionati | tutte le birre esistenti
+{% endblock %}
+{% block corpo %}
+<!--
+<button type="button" id="btn_1">JS Development function</button>
+-->
+<div id="corpo">
+	<div class="upload_url">{{upload_url}}</div>
+	{% if birra %}
+	<div class="birra">
+		{% for attributo in json_data["attributi_birra"] %}
+			{% if attributo.ascii == "immagineprincipale" %}
+				{% if birra.immagineprincipale %}
+				<div class="immagineprincipale"><a href="{{birra.immagineprincipale}}"><img src="{{birra.immagineprincipale}}"/></a></div>
+				{% endif %}
+			{% else %}
+				<div class={{attributo.ascii}}>
+					<span>{{attributo.text}}</span>
+					<a href="/{{attributo.ascii}}/{{birra[attributo.ascii][1]}}">{{birra[attributo.ascii][0]}}</a>
+				</div>
+			{% endif %}
+		{% endfor %}
+		<div class="key">{{birra.key}}</div>
+		<button type="button" id="modifica">Modifica birra</button>
+		<button type="button" id="luogo_di_acquisto">Dove è stata acquistata?</button>
+		<div class="cronologia">
+			<a href="/cronologia/{{birra['nome'][1]}}">
+				Cronologia delle modifiche
+			</a>
+		</div>	
+	</div>
+	{% endif %}
+</div>
+{% endblock %}

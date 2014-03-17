@@ -1,0 +1,10 @@
+
+#corpo {
+	clear: both;
+	height: 300px;
+	margin: 3px;
+	padding: 3px;
+	}
+#mappa_1, #mappa_2 {
+	height: 100%;
+	}

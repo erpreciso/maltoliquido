@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/static/main.css" />
+		<title>TBD</title>
+		<script type="text/javascript">
+
+function confSubmit(form) {
+if (confirm("Sicuri di voler eliminare?")) {
+form.submit();
+}
+else {
+alert("Tutto rimane come prima");
+}
+}
+	</script>
+	</head>
+	<body>
+		<img src="{{blob}}"/>
+		<div style = "display: none;">Titolo immagine: {{immagine.titolo}}</div>
+		<div>Categoria: {{immagine.categoria}}</div>
+		<div style = "display: none;">Didascalia: {{immagine.didascalia}}</div>
+		<div>Caricata: {{immagine.data_caricamento}}</div>
+		<div><a href="/">Torna a principale</a></div>
+		<div>
+			<form method="POST" action="/visualizza/{{chiave}}">
+				<input type="button" onClick="confSubmit(this.form);" name="elimina" value="Elimina">
+			</form>
+		</div>	
+	</body>
+</html>

@@ -1,0 +1,30 @@
+#corpo {
+	float: left;
+	clear: both;
+	font-size: 0.75em;
+	background-color: #434B00;
+	}
+#corpo #criterio {
+/*
+	float: left;
+*/
+	display: block;
+	clear: both;
+	margin: 2px;
+	color: white;
+	background-color: #707EF2;
+	}
+.birra {
+	margin: 2px;
+	display: inline;
+	float: left;
+
+	background-color: #AC7118;
+	}
+.birra div {
+	margin: 1px;
+	padding: 2px;
+	}
+.birra div a {
+	background-color: #DD4836;
+	}

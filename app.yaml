@@ -1,0 +1,25 @@
+application: maltoliquido
+version: 1b
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+
+- url: /statici/caratteri
+  static_dir: statici/caratteri
+  mime_type: application/octet-stream
+
+- url: /liste
+  static_dir: liste
+  application_readable: true
+
+- url: /statici
+  static_dir: statici
+
+- url: /.*
+  script: maltoliquido.app
+
+libraries:
+- name: jinja2
+  version: latest

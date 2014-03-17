@@ -1,0 +1,86 @@
+{
+"birre_test": [
+	{
+		"autore": "stefano",
+		"nome": "becks",
+		"produttore": "becks",
+		"gradoalcolico": "5,5",
+		"nazione": "olanda",
+		"tipo": "chiara"
+		},
+	{
+		"autore": "stefano",
+		"nome": "guinness",
+		"produttore": "guinness",
+		"gradoalcolico": "4,5",
+		"nazione": "irlanda",
+		"tipo": "scura"
+		},
+	{
+		"autore": "stefano",
+		"nome": "bud",
+		"produttore": "budweiser",
+		"gradoalcolico": "4,0",
+		"nazione": "usa",
+		"tipo": "chiara"
+		},
+	{
+		"autore": "stefano",
+		"nome": "leffe",
+		"produttore": "leffe",
+		"gradoalcolico": "3,8",
+		"nazione": "belgio",
+		"tipo": "chiara"
+		}
+	],
+
+"attributi_birra" : [
+	{
+		"text": "Nome",
+		"ascii": "nome",
+		"classe": "Nome",
+		"famiglia": "caratteristica",
+		"tipo": "input"
+		},
+	{
+		"text": "Produttore",
+		"ascii": "produttore",
+		"classe": "Produttore",
+		"famiglia": "caratteristica",
+		"tipo": "input"
+		},
+	{
+		"text": "Grado alcolico",
+		"ascii": "gradoalcolico",
+		"classe": "GradoAlcolico",
+		"famiglia": "caratteristica",
+		"tipo": "input"
+		},
+	{
+		"text": "Nazione",
+		"ascii": "nazione",
+		"classe": "Nazione",
+		"famiglia": "caratteristica",
+		"tipo": "input"
+		},
+	{
+		"text": "Tipo",
+		"ascii": "tipo",
+		"classe": "Tipo",
+		"tipo": "select",
+		"famiglia": "caratteristica",
+		"lista": [
+			{"text": "chiara", "ascii": "chiara"},
+			{"text": "scura", "ascii": "scura"},
+			{"text": "ambrata", "ascii": "ambrata"}
+			]
+		},
+	{
+		"text": "Immagine principale",
+		"ascii": "immagineprincipale",
+		"classe": "ImmaginePrincipale",
+		"famiglia": "immagine",
+		"tipo": "file"
+		}
+	]
+}

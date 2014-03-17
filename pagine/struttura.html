@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% if links %}{% for link in links %}
+			<link type="{{link.type}}" rel="{{link.rel}}" href= "{{link.href}}" />
+		{% endfor %}{% endif %}
+		{% if metas %}{% for meta in metas %}
+			<meta name="{{meta.name}}" http-equiv="{{meta.httpequiv}}" content="{{meta.content}}">
+		{% endfor %}{% endif %}
+		{% if scripts %}{% for script in scripts %}
+			<script src="{{script.src}}"></script>
+		{% endfor %}{% endif %}
+		<title>
+		{% block titolo %}
+		{% endblock %}
+		</title>
+	</head>
+	{% block cornice %}
+	{% endblock %}
+</html>
