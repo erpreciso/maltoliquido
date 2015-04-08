@@ -4,15 +4,17 @@ maltoliquido | per appassionati | tutte le birre esistenti
 {% endblock %}
 {% block corpo %}
 <div id="corpo">
-{% if commenti %}
-{% for commento in commenti %}
+	Cache hits: {{stats["hits"]}}
+	Cache missed: {{stats["misses"]}}
+	{% if commenti %}
+	{% for commento in commenti %}
 	<div class="commento">
 		{{commento.data}}
 		{{commento.testo}}
 	</div>
-{% endfor %}
-{% else %}
-Nessun commento trovato nel database
-{% endif %}
+	{% endfor %}
+	{% else %}
+	Nessun commento trovato nel database
+	{% endif %}
 </div>
 {% endblock %}

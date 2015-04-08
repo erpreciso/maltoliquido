@@ -18,15 +18,22 @@ $(window).ready(function(){
 	//$(document).on('click',"#btn_1",function(){
 		//alert($("section").html());
 	//});
-	
+	// scrive la form inserimento birra se la pagina è vuota
 	if(esiste_elemento(null, "birra", null) == false) {
-		scrivi_form_inserimento_birra(json, null);
+		scrivi_form_inserimento(json, "form_birra", "attributi_birra", null);
 	};
 	
+	// scrive form inserimento birra se necessita di essere modificata
 	$(document).on('click',"#modifica",function(){
 		var vecchio_contenuto = salva_contenuto();
 		$(".birra").remove();
-		scrivi_form_inserimento_birra(json, vecchio_contenuto);
+		scrivi_form_inserimento(json, "form_birra", "attributi_birra", vecchio_contenuto);
+	});
+	
+	// scrive form inserimento acquisto
+	$(document).on("click", "#acquisto", function(){
+		var vecchio_contenuto = salva_contenuto();
+		scrivi_form_inserimento(json, "form_acquisto", "attributi_acquisto", vecchio_contenuto);
 	});
 	
 	// evita il POST al premere di ENTER
@@ -38,9 +45,9 @@ function salva_contenuto(){
 	vecchio_contenuto = new Object();
 	vecchia_immagine_principale = new Object();
 	$(".birra").children().each(function(){
-		if ($(this).attr("class") == "immagineprincipale") {
-			vecchia_immagine_principale.src = $(".immagineprincipale img").attr("src");
-			vecchia_immagine_principale.href = $(".immagineprincipale a").attr("href");
+		if ($(this).attr("class") == "immaginebirra") {
+			vecchia_immagine_principale.src = $(".immaginebirra img").attr("src");
+			vecchia_immagine_principale.href = $(".immaginebirra a").attr("href");
 		}
 		else if ($(this).attr("class") == "key") {
 			vecchio_contenuto[$(this).attr("class")] = $(this).text();
@@ -66,13 +73,23 @@ function formatta_data(date) {
     return yyyy + "-" + mm + "-" + dd + " " + hh + ":" + min + ":" + ss;
 };
 
-function scrivi_form_inserimento_birra(json, vecchio_contenuto){
+function scrivi_form_inserimento(json, nome_form, attributi, vecchio_contenuto){
 	var upload_url = $(".upload_url").text();
 	elm_form = $(document.createElement("form"))
 		.attr("enctype", "multipart/form-data")
 		.attr("method", "POST")
+		.attr("name", "birra")
 		.attr("action", upload_url);
-	//key
+	
+	// nome form
+	var elm = $(document.createElement("div"));
+	var inp = $(document.createElement("input"))
+		.attr("name", "nome_form")
+		.attr("type", "hidden")
+		.attr("value", nome_form);
+	elm_form.append(elm.append(inp));
+	
+	// key
 	if (vecchio_contenuto) {
 		var elm = $(document.createElement("div"));
 		var inp = $(document.createElement("input"))
@@ -86,37 +103,39 @@ function scrivi_form_inserimento_birra(json, vecchio_contenuto){
 	var inp = $(document.createElement("input"))
 		.attr("name", "autore")
 		.attr("required", "required")
-		.attr("placeholder", "chi sei?");
+		.attr("placeholder", "chi sei? inserisci il tuo nick");
 	elm_form.append(elm.append(inp));
 	//altri attributi
-	for (var i = 0; i < json.attributi_birra.length; i++) {
+	for (var i = 0; i < json[attributi].length; i++) {
 		var elm = $(document.createElement("div"));
-		if (json.attributi_birra[i].tipo == "input") {
+		if (json[attributi][i].tipo == "input") {
 			var inp = $(document.createElement("input"))
-				.attr("name", json.attributi_birra[i].ascii)
-				.attr("required", "required")
-				.attr("placeholder", json.attributi_birra[i].text);
-			if (vecchio_contenuto && vecchio_contenuto[0][json.attributi_birra[i].ascii]) {
-				inp.attr("value", vecchio_contenuto[0][json.attributi_birra[i].ascii]);
+				.attr("name", json[attributi][i].ascii)
+				.attr("placeholder", json[attributi][i].text);
+			if (json[attributi][i].richiesto == true) {
+				inp.attr("required", "required");
+			}
+			if (vecchio_contenuto && vecchio_contenuto[0][json[attributi][i].ascii]) {
+				inp.attr("value", vecchio_contenuto[0][json[attributi][i].ascii]);
 			}
 			elm_form.append(elm.append(inp));
 			}
-		if (json.attributi_birra[i].tipo == "file") {
+		if (json[attributi][i].tipo == "file") {
 			var inp = $(document.createElement("input"))
-				.attr("name", json.attributi_birra[i].ascii)
-				.attr("placeholder", json.attributi_birra[i].text)
+				.attr("name", json[attributi][i].ascii)
+				.attr("placeholder", json[attributi][i].text)
 				.attr("required", "required")
 				.attr("type", "file");
 			elm_form.append(elm.append(inp));
 			}
-		else if (json.attributi_birra[i].tipo == "select") {
+		else if (json[attributi][i].tipo == "select") {
 			var sel = $(document.createElement("select"))
-				.attr("name", json.attributi_birra[i].ascii);
-			for (var j = 0; j < json.attributi_birra[i].lista.length; j++) { 
+				.attr("name", json[attributi][i].ascii);
+			for (var j = 0; j < json[attributi][i].lista.length; j++) { 
 				var opt = $(document.createElement("option"))
-						.attr("value", json.attributi_birra[i].lista[j].ascii)
-						.text(json.attributi_birra[i].lista[j].text);
-				if (vecchio_contenuto && vecchio_contenuto[0][json.attributi_birra[i].ascii] == json.attributi_birra[i].lista[j].ascii) {
+						.attr("value", json[attributi][i].lista[j].ascii)
+						.text(json[attributi][i].lista[j].text);
+				if (vecchio_contenuto && vecchio_contenuto[0][json[attributi][i].ascii] == json[attributi][i].lista[j].ascii) {
 					opt.attr("selected", "selected");
 				}
 				sel.append(opt);

@@ -10,13 +10,67 @@ indexes:
 # automatically uploaded to the admin console when you next deploy
 # your application using appcfg.py.
 
+- kind: Bicchiere
+  ancestor: yes
+  properties:
+  - name: data
+    direction: desc
+
+- kind: Colore
+  ancestor: yes
+  properties:
+  - name: data
+    direction: desc
+
+- kind: Dove
+  ancestor: yes
+  properties:
+  - name: data
+    direction: desc
+
+- kind: Fermentazione
+  ancestor: yes
+  properties:
+  - name: data
+    direction: desc
+
+- kind: Fonte
+  ancestor: yes
+  properties:
+  - name: data
+    direction: desc
+
+- kind: FormatoDiVendita
+  ancestor: yes
+  properties:
+  - name: data
+    direction: desc
+
 - kind: GradoAlcolico
   ancestor: yes
   properties:
   - name: data
     direction: desc
 
+- kind: Gusto
+  ancestor: yes
+  properties:
+  - name: data
+    direction: desc
+
 - kind: ImmagineBirra
+  ancestor: yes
+  properties:
+  - name: data
+    direction: desc
+
+- kind: Link
+  ancestor: yes
+  properties:
+  - name: data
+    direction: desc
+
+- kind: Marchio
   ancestor: yes
   properties:
   - name: data
@@ -35,6 +89,42 @@ indexes:
     direction: desc
 
 - kind: Produttore
+  ancestor: yes
+  properties:
+  - name: data
+    direction: desc
+
+- kind: Quando
+  ancestor: yes
+  properties:
+  - name: data
+    direction: desc
+
+- kind: Schiuma
+  ancestor: yes
+  properties:
+  - name: data
+    direction: desc
+
+- kind: Sottostile
+  ancestor: yes
+  properties:
+  - name: data
+    direction: desc
+
+- kind: Status
+  ancestor: yes
+  properties:
+  - name: data
+    direction: desc
+
+- kind: Stile
+  ancestor: yes
+  properties:
+  - name: data
+    direction: desc
+
+- kind: TemperaturaDiServizio
   ancestor: yes
   properties:
   - name: data

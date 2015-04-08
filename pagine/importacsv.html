@@ -1,0 +1,16 @@
+{% extends "cornice.html" %}
+{% block titolo %}
+maltoliquido | per appassionati | tutte le birre esistenti
+{% endblock %}
+{% block corpo %}
+
+<div id="corpo">
+	<form method="POST" action="{{upload_url}}" enctype="multipart/form-data">
+		<div class="importa">
+			<span>Seleziona il file CSV da importare</span>
+			<input type="file" name="csv_birre" required="required">
+			<input type="submit">
+		</div>
+	</form>
+</div>
+{% endblock %}

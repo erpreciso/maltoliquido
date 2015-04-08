@@ -5,7 +5,8 @@
 	}
 
 form,
-.birra {
+.birra,
+.acquisti {
 	float: left;
 	margin: 1%;
 /*
@@ -14,19 +15,22 @@ form,
 	background-color: #B2A3FF;
 	}
 
-.birra div {
+.birra div,
+.acquisti div {
 	margin: 5px;
 	background-color: #D5D3E4;
 	}
 
-.birra div span {
+.birra div span,
+.acquisti div span {
 	margin: 2px;
 	padding: 2px;
 	background-color: #7461D5;
 	font-size: 1.125em;
 	}
 	
-.birra div a {
+.birra div a,
+.acquisti div a {
 	margin: 2px;
 	padding: 2px;
 	background-color: #E1D675;

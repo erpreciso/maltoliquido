@@ -4,6 +4,8 @@ maltoliquido | per appassionati | tutte le birre esistenti
 {% endblock %}
 {% block corpo %}
 <div id="corpo">
+	Cache hits: {{stats["hits"]}}
+	Cache missed: {{stats["misses"]}}
 {% if criterio %}
 	<div id="criterio">Mostrate birre per {{criterio}}</div>
 {% endif %}
@@ -11,10 +13,15 @@ maltoliquido | per appassionati | tutte le birre esistenti
 {% for birra in birre %}
 	<div class="birra">
 		{% for attributo in json_data["attributi_birra"] %}
-			{% if attributo.ascii == "immagineprincipale" %}
-				<div class="immagineprincipale"><a href="{{birra.immagineprincipale}}"><img src="{{birra.immagineprincipale}}"/></a></div>
+			{% if attributo.ascii == "immaginebirra" %}
+				<div class="immaginebirra"><a href="{{birra.immaginebirra}}"><img src="{{birra.immaginebirra}}"/></a></div>
 			{% else %}
-				<div class={{attributo.ascii}}><a href="/{{attributo.ascii}}/{{birra[attributo.ascii][1]}}">{{birra[attributo.ascii][0]}}</a></div>
+				{%if birra[attributo.ascii] %}
+				<div class={{attributo.ascii}}>
+					<span>{{attributo.text}}</span>
+					<a href="/{{attributo.ascii}}/{{birra[attributo.ascii][1]}}">{{birra[attributo.ascii][0]}}</a>
+				</div>
+				{% endif %}
 			{% endif %}
 		{% endfor %}
 	</div>

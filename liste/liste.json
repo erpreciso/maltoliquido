@@ -1,74 +1,28 @@
 {
-"birre_test": [
-	{
-		"autore": "stefano",
-		"nome": "becks",
-		"produttore": "becks",
-		"gradoalcolico": "5,5",
-		"nazione": "olanda",
-		"tipo": "chiara"
-		},
-	{
-		"autore": "stefano",
-		"nome": "guinness",
-		"produttore": "guinness",
-		"gradoalcolico": "4,5",
-		"nazione": "irlanda",
-		"tipo": "scura"
-		},
-	{
-		"autore": "stefano",
-		"nome": "bud",
-		"produttore": "budweiser",
-		"gradoalcolico": "4,0",
-		"nazione": "usa",
-		"tipo": "chiara"
-		},
-	{
-		"autore": "stefano",
-		"nome": "leffe",
-		"produttore": "leffe",
-		"gradoalcolico": "3,8",
-		"nazione": "belgio",
-		"tipo": "chiara"
-		}
-	],
-
 "attributi_birra" : [
 	{
 		"text": "Nome",
 		"ascii": "nome",
 		"classe": "Nome",
-		"famiglia": "caratteristica",
+		"richiesto": true,
+		"famiglia": "Caratteristica",
 		"tipo": "input"
 		},
 	{
 		"text": "Produttore",
 		"ascii": "produttore",
 		"classe": "Produttore",
-		"famiglia": "caratteristica",
+		"richiesto": false,
+		"famiglia": "Caratteristica",
 		"tipo": "input"
 		},
 	{
-		"text": "Grado alcolico",
-		"ascii": "gradoalcolico",
-		"classe": "GradoAlcolico",
-		"famiglia": "caratteristica",
-		"tipo": "input"
-		},
-	{
-		"text": "Nazione",
-		"ascii": "nazione",
-		"classe": "Nazione",
-		"famiglia": "caratteristica",
-		"tipo": "input"
-		},
-	{
-		"text": "Tipo",
-		"ascii": "tipo",
-		"classe": "Tipo",
+		"text": "Stile",
+		"ascii": "stile",
+		"classe": "Stile",
+		"richiesto": false,
 		"tipo": "select",
-		"famiglia": "caratteristica",
+		"famiglia": "Caratteristica",
 		"lista": [
 			{"text": "chiara", "ascii": "chiara"},
 			{"text": "scura", "ascii": "scura"},
@@ -76,11 +30,147 @@
 			]
 		},
 	{
-		"text": "Immagine principale",
-		"ascii": "immagineprincipale",
-		"classe": "ImmaginePrincipale",
-		"famiglia": "immagine",
+		"text": "Sottostile",
+		"ascii": "sottostile",
+		"classe": "Sottostile",
+		"richiesto": false,
+		"famiglia": "Caratteristica",
+		"tipo": "input"
+		},
+	{
+		"text": "Nazione",
+		"ascii": "nazione",
+		"classe": "Nazione",
+		"richiesto": false,
+		"famiglia": "Caratteristica",
+		"tipo": "input"
+		},
+	{
+		"text": "Grado alcolico",
+		"ascii": "gradoalcolico",
+		"classe": "GradoAlcolico",
+		"richiesto": false,
+		"famiglia": "Caratteristica",
+		"tipo": "input"
+		},
+	{
+		"text": "Marchio",
+		"ascii": "marchio",
+		"classe": "Marchio",
+		"richiesto": false,
+		"famiglia": "Caratteristica",
+		"tipo": "input"
+		},
+	
+	{
+		"text": "Colore",
+		"ascii": "colore",
+		"classe": "Colore",
+		"richiesto": false,
+		"famiglia": "Caratteristica",
+		"tipo": "input"
+		},
+	{
+		"text": "Fermentazione",
+		"ascii": "fermentazione",
+		"classe": "Fermentazione",
+		"richiesto": false,
+		"famiglia": "Caratteristica",
+		"tipo": "input"
+		},
+	{
+		"text": "Temperatura di servizio",
+		"ascii": "temperaturadiservizio",
+		"classe": "TemperaturaDiServizio",
+		"richiesto": false,
+		"famiglia": "Caratteristica",
+		"tipo": "input"
+		},
+	{
+		"text": "Schiuma",
+		"ascii": "schiuma",
+		"classe": "Schiuma",
+		"richiesto": false,
+		"famiglia": "Caratteristica",
+		"tipo": "input"
+		},
+	{
+		"text": "Gusto",
+		"ascii": "gusto",
+		"classe": "Gusto",
+		"richiesto": false,
+		"famiglia": "Caratteristica",
+		"tipo": "input"
+		},
+	{
+		"text": "Formato di vendita",
+		"ascii": "formatodivendita",
+		"classe": "FormatoDiVendita",
+		"richiesto": false,
+		"famiglia": "Caratteristica",
+		"tipo": "input"
+		},
+	{
+		"text": "Bicchiere",
+		"ascii": "bicchiere",
+		"classe": "Bicchiere",
+		"richiesto": false,
+		"famiglia": "Caratteristica",
+		"tipo": "input"
+		},
+	{
+		"text": "Fonte",
+		"ascii": "fonte",
+		"classe": "Fonte",
+		"richiesto": false,
+		"famiglia": "Caratteristica",
+		"tipo": "input"
+		},
+	{
+		"text": "Link",
+		"ascii": "link",
+		"classe": "Link",
+		"richiesto": false,
+		"famiglia": "Caratteristica",
+		"tipo": "input"
+		},
+	{
+		"text": "Status",
+		"ascii": "status",
+		"classe": "Status",
+		"richiesto": false,
+		"famiglia": "Caratteristica",
+		"tipo": "select",
+		"lista": [
+			{"text": "verificata", "ascii": "verificata"},
+			{"text": "da rivedere", "ascii": "darivedere"}
+			]
+		},
+	{
+		"text": "Immagine birra",
+		"ascii": "immaginebirra",
+		"classe": "ImmagineBirra",
+		"famiglia": "Immagine",
 		"tipo": "file"
+		}
+	],
+	
+	"attributi_acquisto" : [
+	{
+		"text": "Dove",
+		"ascii": "dove",
+		"classe": "Dove",
+		"richiesto": true,
+		"famiglia": "Caratteristica",
+		"tipo": "input"
+		},
+	{
+		"text": "Quando",
+		"ascii": "quando",
+		"classe": "Quando",
+		"richiesto": true,
+		"famiglia": "Caratteristica",
+		"tipo": "input"
 		}
 	]
 }
